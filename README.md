@@ -12,35 +12,22 @@ You need to install docker first. Check [here](https://docs.docker.com/install/)
 ## Install
 
 ```bash
-
+git clone https://github.com/valsdav/vbscan-school.git
 ```
 
-## Usage
+## Usage and files sharing
 
-This container uses model files in /var/UFO\_models and outputs in /var/MG\_outputs.
+A folder of your file system is shared between your system and the docker: it is mounted inside the docker in the **/data**
+location.  Only the files created in the **/data** directory inside the docker are visibile in the user file system outside of the docker and are persisted when the docker is stopped. 
 
-So you should indicate these folders like this:
+The folder to be mounted inside the docker is defined at the startup of the docker: repositories and data files should be placed inside that folder to make them visible inside the docker.
+
+To open a session run:
 
 ```bash
-docker run -t -i -v $HOME/models:/var/UFO_models -v $HOME/outputs:/var/MG_outputs hfukuda/madgraph
+
+WORKSPACE=/home/user/path/to/your/workspace/of/preference
+./run.sh $WORKSPACE
+
 ```
 
-Note that the local path must be an absolute, not a relative one.
-
-### Run madevent
-
-To use madevent for a process named `PROC_NAME`, you can run
-
-```bash
-docker run -it --rm -v $HOME/outputs:/var/MG_outputs -w /var/MG_outputs/PROC_NAME hfukuda/madgraph bin/madevent
-```
-
-### Run as the current user
-
-By default, the madgraph run as root. If you want to run it as the current user, add `--user=$(id -u):$(id -g)` like this:
-
-```bash
-docker run -t -i --user=$(id -u):$(id -g) -v $HOME/models:/var/UFO_models -v $HOME/outputs:/var/MG_outputs hfukuda/madgraph
-```
-
-Note that `$HOME/outputs` must exist beforehand. Otherwise madgraph doesn't work well due to the permission problem.

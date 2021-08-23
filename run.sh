@@ -11,7 +11,7 @@ WORKDIR=$(realpath $1)
 if [[ ! -d "$WORKDIR" ]]
 then
     echo "$WORKDIR not exists on your filesystem: creating it"
-    makedir $WORKDIR;
+    mkdir $WORKDIR;
 fi
 
 docker pull "${image}"
