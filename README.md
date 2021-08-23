@@ -27,7 +27,7 @@ To open a session run:
 
 ```bash
 
-WORKSPACE=/home/user/path/to/your/workspace/of/preference
+export WORKSPACE=/home/user/path/to/your/workspace/of/preference
 ./run.sh $WORKSPACE
 
 ```
