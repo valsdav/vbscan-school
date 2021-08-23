@@ -27,8 +27,16 @@ To open a session run:
 
 ```bash
 
+# Define the folder on your file system to be used for file sharing
 export WORKSPACE=/home/user/path/to/your/workspace/of/preference
-./run.sh $WORKSPACE
+mkdir $WORKSPACE
+
+# Install (if not already done) the helper script repository
+git clone https://github.com/valsdav/vbscan-school.git
+cd vbscan-school
+
+# run.sh is a script to setup and run the docker enviroment
+./run.sh $WORKSPACE 
 
 ```
 

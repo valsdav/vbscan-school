@@ -18,5 +18,7 @@ docker pull "${image}"
 docker run \
 	-ti --rm \
 	-v "${WORKDIR}":"/data" \
+    --name vbscan \
 	"${image}" 
+   
 
