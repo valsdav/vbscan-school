@@ -2,6 +2,7 @@
 
 [MadGraph](https://launchpad.net/mg5amcnlo) is a integrated event generator for the high energy phisics and
 widely used in that field. This docker image significantly simplifies the process to use MadGraph.
+The ROOT framework and common Python packages as numpy, pandas,Tensorflow etc have been also included in the image. 
 
 This repository has been built on top of: https://github.com/scailfin/MadGraph5_aMC-NLO
 
