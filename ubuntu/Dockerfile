@@ -150,12 +150,12 @@ RUN export SED_RANGE="$(($(sed -n '\|enable bash completion in interactive shell
 # Create user "docker"
 RUN useradd --shell /bin/bash -m docker && \
    cp /root/.bashrc /home/docker/ && \
-   mkdir /home/docker/data && \
    chown -R --from=root docker /home/docker && \
    chown -R --from=root docker /usr/local/MG5_aMC && \
    chown -R --from=root docker /usr/local/share && \
    chown -R --from=503 docker /usr/local/MG5_aMC
-  
+
+# Folder for volume sharing
 RUN mkdir /data && chmod a+rwx /data
 
 # Use C.UTF-8 locale to avoid issues with ASCII encoding
@@ -191,6 +191,7 @@ RUN lhapdf install ${PDFSET}
 # Install Delphes
 RUN echo install Delphes | /usr/local/MG5_aMC/bin/mg5_aMC
 
+# Default working is the volume shared folder
 WORKDIR /data
 ENV OUTDIR /data
 

@@ -40,3 +40,45 @@ cd vbscan-school
 
 ```
 
+Some helper options are available in the run.sh script:
+
+```bash 
+
+# Open a bash session
+./run.sh $WORKSPACE 
+
+# Open a python session
+./run.sh $WORKSPACE python
+
+# Open a Madgraph session
+./run.sh $WORKSPACE mg5_aMC
+
+# Open a ROOT session
+./run.sh $WORKSPACE root
+```
+
+It is also possible to just start the docker and then open and run several terminal on the same environment:
+
+```bash
+# Open a session in background
+./run.sh $WORKSPACE start
+
+# Now to open a terminal just run
+docker exec -ti vbscan bash
+
+# or to open a specific program
+docker exec -ti vbscan python
+
+# or to open a specific program
+docker exec -ti vbscan "python /data/your-script.py"
+```
+
+To stop the docker process and all the programs inside just execute:
+
+```bash
+docker stop vbscan
+docker rmr vbscan
+
+#or use the helper program
+./run.sh $WORKSPACE clean
+```
