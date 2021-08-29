@@ -22,6 +22,7 @@ case $COMMAND in
   "start")
     docker run \
 	-ti -d --rm\
+    --user $(id -u):$(id -g) \
 	-v "${WORKDIR}":"/data" \
     --name vbscan \
 	"${image}" ;
@@ -34,6 +35,7 @@ case $COMMAND in
   "python")
      docker run \
 	-ti --rm \
+    --user $(id -u):$(id -g) \
 	-v "${WORKDIR}":"/data" \
     --name vbscan \
 	"${image}" \
@@ -43,6 +45,7 @@ case $COMMAND in
    "mg5_aMC")
       docker run \
 	-ti --rm \
+    --user $(id -u):$(id -g) \
 	-v "${WORKDIR}":"/data" \
     --name vbscan \
 	"${image}" \
@@ -52,6 +55,7 @@ case $COMMAND in
     "root")
       docker run \
 	-ti --rm \
+    --user $(id -u):$(id -g) \
 	-v "${WORKDIR}":"/data" \
     --name vbscan \
 	"${image}" \
@@ -61,6 +65,7 @@ case $COMMAND in
   *)
     docker run \
 	-ti --rm \
+    --user $(id -u):$(id -g) \
 	-v "${WORKDIR}":"/data" \
     --name vbscan \
 	"${image}"
