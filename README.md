@@ -8,9 +8,11 @@ This repository has been built on top of: https://github.com/scailfin/MadGraph5_
 
 ## Prerequisite
 
-You need to install docker first. Check [here](https://docs.docker.com/install/).
+You need to install **docker** first. Please  checkout detailed instructions for Linux/Mac/Windows [here](https://docs.docker.com/install/) before going further with the instructions.
 
 ## Install
+
+To install the relevant helper scripts to run the docker images just clone the repository on your system.
 
 ```bash
 git clone https://github.com/valsdav/vbscan-school.git
@@ -18,12 +20,15 @@ git clone https://github.com/valsdav/vbscan-school.git
 
 ## Usage and files sharing
 
-A folder of your file system is shared between your system and the docker: it is mounted inside the docker in the **/data**
-location.  Only the files created in the **/data** directory inside the docker are visibile in the user file system outside of the docker and are persisted when the docker is stopped. 
+A folder will be shared between your system and the docker processes in order to provide inputs and save the outputs. 
 
-The folder to be mounted inside the docker is defined at the startup of the docker: repositories and data files should be placed inside that folder to make them visible inside the docker.
+The folder to be mounted inside the docker is defined at the startup: repositories and data files should be placed inside that folder to make them visible inside the docker.
 
-To open a session run:
+The folder is available inside the docker in the  **/data** path.  N.B.: only files saved in the **/data** directory inside the docker are visibile outside of the docker and are **persisted when the docker is stopped**.  Any other file created outside **/data** are not saved when the docker is stopped.
+
+An helper script **run.sh** has been created to help with the download and startup of the programs inside the docker image. 
+
+To open a session follow the instructions:
 
 ```bash
 
@@ -40,7 +45,7 @@ cd vbscan-school
 
 ```
 
-Some helper options are available in the run.sh script:
+Some options are available in the run.sh script to start directly python/root/Madgraph:
 
 ```bash 
 
@@ -57,7 +62,7 @@ Some helper options are available in the run.sh script:
 ./run.sh $WORKSPACE root
 ```
 
-It is also possible to just start the docker and then open and run several terminal on the same environment:
+It is also possible to just start the docker in the background and then open and run several terminal on the same running docker environment:
 
 ```bash
 # Open a session in background
