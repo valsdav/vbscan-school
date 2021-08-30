@@ -13,5 +13,5 @@ image:
 	--build-arg MG_VERSION=3.1.1 \
 	--build-arg PDFSET=NNPDF31_lo_as_0118 \
 	-t valsdav/vbscan-school:latest \
-	-t valsdav/vbscan-school:1.0 \
+	-t valsdav/vbscan-school:1.1 \
 	--compress

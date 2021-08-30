@@ -21,6 +21,7 @@ RUN apt-get -qq -y update && \
       bash-completion \
       python3-dev \
       python3-pip \
+      python3-tk \
       wget \
       ghostscript \
       rsync \ 

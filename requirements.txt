@@ -9,4 +9,3 @@ seaborn
 ipython
 shap
 h5py
-pyqt5

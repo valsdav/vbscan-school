@@ -4,7 +4,7 @@ set -e
 set -u
 set -o pipefail
 
-image="valsdav/vbscan-school:1.0"
+image="valsdav/vbscan-school:1.1"
 
 WORKDIR=$(realpath $1)
 COMMAND=${2:-default}
