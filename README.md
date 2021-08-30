@@ -87,3 +87,17 @@ docker rmr vbscan
 #or use the helper program
 ./run.sh $WORKSPACE clean
 ```
+
+
+## Sharing the X server
+
+In order to be able to open the Root or Python graphical interfaces the X server of the machine needs to be shared with the docker. 
+The necessary options have been added to the run.sh scripts. 
+
+In case of problems this command has to be executed in the user machine: 
+
+```bash
+xhost local:
+```
+
+If the **xhost** command is not available please install the xorg-xhost package on your system.

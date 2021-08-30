@@ -24,6 +24,8 @@ case $COMMAND in
 	-ti -d --rm\
     --user $(id -u):$(id -g) \
 	-v "${WORKDIR}":"/data" \
+    -e DISPLAY=$DISPLAY \
+    -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
     --name vbscan \
 	"${image}" ;
     ;;
@@ -37,6 +39,8 @@ case $COMMAND in
 	-ti --rm \
     --user $(id -u):$(id -g) \
 	-v "${WORKDIR}":"/data" \
+    -e DISPLAY=$DISPLAY \
+    -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
     --name vbscan \
 	"${image}" \
     "python";
@@ -47,6 +51,8 @@ case $COMMAND in
 	-ti --rm \
     --user $(id -u):$(id -g) \
 	-v "${WORKDIR}":"/data" \
+    -e DISPLAY=$DISPLAY \
+    -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
     --name vbscan \
 	"${image}" \
     "mg5_aMC";
@@ -57,6 +63,8 @@ case $COMMAND in
 	-ti --rm \
     --user $(id -u):$(id -g) \
 	-v "${WORKDIR}":"/data" \
+    -e DISPLAY=$DISPLAY \
+    -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
     --name vbscan \
 	"${image}" \
     "root";
@@ -67,6 +75,8 @@ case $COMMAND in
 	-ti --rm \
     --user $(id -u):$(id -g) \
 	-v "${WORKDIR}":"/data" \
+    -e DISPLAY=$DISPLAY \
+    -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
     --name vbscan \
 	"${image}"
     ;;
