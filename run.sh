@@ -26,7 +26,6 @@ case $COMMAND in
 	-v "${WORKDIR}":"/data" \
     -e DISPLAY=$DISPLAY \
     -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
-    -p 8080:8080 \
     --name vbscan \
 	"${image}" ;
     ;;
@@ -42,12 +41,11 @@ case $COMMAND in
 	-v "${WORKDIR}":"/data" \
     -e DISPLAY=$DISPLAY \
     -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
-    -p 8080:8080 \
     --name vbscan \
 	"${image}" \
     "python";
     ;;
-
+    
    "mg5_aMC")
       docker run \
 	-ti --rm \
@@ -55,7 +53,6 @@ case $COMMAND in
 	-v "${WORKDIR}":"/data" \
     -e DISPLAY=$DISPLAY \
     -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
-    -p 8080:8080 \
     --name vbscan \
 	"${image}" \
     "mg5_aMC";
@@ -68,7 +65,6 @@ case $COMMAND in
 	-v "${WORKDIR}":"/data" \
     -e DISPLAY=$DISPLAY \
     -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
-    -p 8080:8080 \
     --name vbscan \
 	"${image}" \
     "root";
@@ -94,7 +90,6 @@ case $COMMAND in
 	-v "${WORKDIR}":"/data" \
     -e DISPLAY=$DISPLAY \
     -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
-    -p 8080:8080 \
     --name vbscan \
 	"${image}"
     ;;

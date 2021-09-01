@@ -195,7 +195,17 @@ RUN echo install Delphes | /usr/local/MG5_aMC/bin/mg5_aMC
 USER root 
 RUN python -m pip --no-cache-dir install --upgrade jupyter 
 
+WORKDIR ${HOME}/install_data/phantom_1_7
+ADD phantom_1_7 .
+RUN  chmod a+rwx ${HOME}/install_data/phantom_1_7 \
+    && make
+ENV PATH=${HOME}/install_data/phantom_1_7:$PATH
+RUN chmod a+rwx /usr/local/MG5_aMC/models
+RUN echo "import model heft" | /usr/local/MG5_aMC/bin/mg5_aMC
+RUN echo "convert model /usr/local/MG5_aMC/models/heft" | /usr/local/MG5_aMC/bin/mg5_aMC
+
 USER docker
+RUN lhapdf install NNPDF23_lo_as_0130_qed
 # Default working is the volume shared folder
 WORKDIR /data
 ENV OUTDIR /data
