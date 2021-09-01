@@ -204,6 +204,9 @@ RUN chmod a+rwx /usr/local/MG5_aMC/models
 RUN echo "import model heft" | /usr/local/MG5_aMC/bin/mg5_aMC
 RUN echo "convert model /usr/local/MG5_aMC/models/heft" | /usr/local/MG5_aMC/bin/mg5_aMC
 
+RUN chmod a+rwx -R ${HOME}/install_data/phantom_1_7
+ENV PHANTOM=${HOME}/install_data/phantom_1_7
+
 USER docker
 RUN lhapdf install NNPDF23_lo_as_0130_qed
 # Default working is the volume shared folder
