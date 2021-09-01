@@ -203,6 +203,7 @@ ENV PATH=${HOME}/install_data/phantom_1_7:$PATH
 RUN chmod a+rwx /usr/local/MG5_aMC/models
 RUN echo "import model heft" | /usr/local/MG5_aMC/bin/mg5_aMC
 RUN echo "convert model /usr/local/MG5_aMC/models/heft" | /usr/local/MG5_aMC/bin/mg5_aMC
+RUN mkdir /home/docker/.local && chmod a+rwx -R /home/docker/.local
 
 RUN chmod a+rwx -R ${HOME}/install_data/phantom_1_7
 ENV PHANTOM=${HOME}/install_data/phantom_1_7
