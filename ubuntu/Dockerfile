@@ -192,6 +192,10 @@ RUN lhapdf install ${PDFSET}
 # Install Delphes
 RUN echo install Delphes | /usr/local/MG5_aMC/bin/mg5_aMC
 
+USER root 
+RUN python -m pip --no-cache-dir install --upgrade jupyter 
+
+USER docker
 # Default working is the volume shared folder
 WORKDIR /data
 ENV OUTDIR /data

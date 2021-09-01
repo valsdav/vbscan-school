@@ -88,6 +88,20 @@ docker rmr vbscan
 ./run.sh $WORKSPACE clean
 ```
 
+## Start a jupyter notebook
+
+To start the jupyter notebook interface inside the docker just run:
+
+```bash 
+./run.sh $WORKSPACE jupyter
+
+# Then get the URL with the correct tocken from 
+docker logs vbscan_jupyter
+```
+The docker image will be running in background with a jupyter notebook session open. To close it, run:
+```bash
+docker stop vbscan_jupyter
+```
 
 ## Sharing the X server
 

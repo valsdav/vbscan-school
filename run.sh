@@ -4,9 +4,9 @@ set -e
 set -u
 set -o pipefail
 
-image="valsdav/vbscan-school:1.1"
+image="valsdav/vbscan-school:1.2"
 
-WORKDIR=$(realpath $1)
+WORKDIR=$1
 COMMAND=${2:-default}
 
 if [[ ! -d "$WORKDIR" ]]
@@ -26,6 +26,7 @@ case $COMMAND in
 	-v "${WORKDIR}":"/data" \
     -e DISPLAY=$DISPLAY \
     -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
+    -p 8080:8080 \
     --name vbscan \
 	"${image}" ;
     ;;
@@ -41,6 +42,7 @@ case $COMMAND in
 	-v "${WORKDIR}":"/data" \
     -e DISPLAY=$DISPLAY \
     -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
+    -p 8080:8080 \
     --name vbscan \
 	"${image}" \
     "python";
@@ -53,6 +55,7 @@ case $COMMAND in
 	-v "${WORKDIR}":"/data" \
     -e DISPLAY=$DISPLAY \
     -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
+    -p 8080:8080 \
     --name vbscan \
 	"${image}" \
     "mg5_aMC";
@@ -65,9 +68,23 @@ case $COMMAND in
 	-v "${WORKDIR}":"/data" \
     -e DISPLAY=$DISPLAY \
     -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
+    -p 8080:8080 \
     --name vbscan \
 	"${image}" \
     "root";
+    ;;
+
+    "jupyter")
+      docker run \
+	-ti -d --rm \
+    --user $(id -u):$(id -g) \
+	-v "${WORKDIR}":"/data" \
+    -e DISPLAY=$DISPLAY \
+    -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
+    -p 8080:8080 \
+    --name vbscan_jupyter \
+	"${image}" \
+    "jupyter notebook --ip=0.0.0.0 --port=8080 --no-browser";
     ;;
 
   *)
@@ -77,6 +94,7 @@ case $COMMAND in
 	-v "${WORKDIR}":"/data" \
     -e DISPLAY=$DISPLAY \
     -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
+    -p 8080:8080 \
     --name vbscan \
 	"${image}"
     ;;
