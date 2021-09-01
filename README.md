@@ -115,3 +115,20 @@ xhost local:
 ```
 
 If the **xhost** command is not available please install the xorg-xhost package on your system.
+
+
+## Install tensorflow on Mac with M1
+
+source: https://developer.apple.com/metal/tensorflow-plugin/ 
+
+tl; dr:
+copy-paste this in your terminal:
+
+```
+chmod +x ~/Downloads/Miniforge3-MacOSX-arm64.sh
+sh ~/Downloads/Miniforge3-MacOSX-arm64.sh
+source ~/miniforge3/bin/activate
+conda install -c apple tensorflow-deps
+python -m pip install tensorflow-macos
+python -m pip install tensorflow-metal
+```
