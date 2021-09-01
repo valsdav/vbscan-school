@@ -87,7 +87,6 @@ docker rmr vbscan
 #or use the helper program
 ./run.sh $WORKSPACE clean
 ```
-
 ## Start a jupyter notebook
 
 To start the jupyter notebook interface inside the docker just run:
@@ -101,6 +100,17 @@ docker logs vbscan_jupyter
 The docker image will be running in background with a jupyter notebook session open. To close it, run:
 ```bash
 docker stop vbscan_jupyter
+```
+
+### Delphes 
+
+Delphes is located in `/usr/local/MG5_aMC/Delphes`
+
+```bash
+#from inside the docker
+export DELPHES=/usr/local/MG5_aMC/Delphes
+
+$DELPHES/DelphesLHEF $DELPHES/cards/gen_card.tcl test.root Events/run_01/unweighted_events.lhe
 ```
 
 ## Sharing the X server
